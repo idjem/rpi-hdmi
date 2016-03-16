@@ -8,6 +8,7 @@ const HDMI_STATUS_CMD   = "--status"
 
 
 var runCmd = function(arg, chain){
+  chain = chain || Function.prototype;
   var child = spawn(TVSERVICE_PATH, [arg])
   var status = "";
   
@@ -22,12 +23,13 @@ var runCmd = function(arg, chain){
   child.stdout.on("error" , function(err){
     chain(err);
   })
-
 }
 
-module.exports.status = function(chain){
+var status = function(chain){
   runCmd(HDMI_STATUS_CMD , chain);
 }
+
+module.exports.status = status
 
 module.exports.on = function(chain){
   runCmd(HDMI_ON_CMD , chain);
@@ -36,3 +38,14 @@ module.exports.on = function(chain){
 module.exports.off = function(chain){
   runCmd(HDMI_OFF_CMD , chain);
 }
+
+
+module.exports.isConnected = function(chain){
+  chain = chain || Function.prototype;
+  status(function(err , data){
+    if(err)
+      return chain(err)
+    chain(null , (data.indexOf("TV is off") === -1) )
+  });
+}
+
