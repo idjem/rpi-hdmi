@@ -1,0 +1,20 @@
+{
+  "name": "rpi-hdmi",
+  "version": "0.1.0",
+  "description": "Enable and disable the HDMI signal of the Raspberry PI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idjem/rpi-hdmi.git"
+  },
+  "keywords": [
+    "rpi",
+    "hdmi",
+    "node"
+  ],
+  "author": "Mejdi Ourir <mejdiourir@gmail.com>",
+  "license": "MIT"
+}
