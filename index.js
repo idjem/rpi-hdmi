@@ -39,7 +39,7 @@ var hdmi = {
       runCmd(HDMI_OFF_CMD , chain);
     },
 
-   isConnected = function(chain){
+   isConnected : function(chain){
     chain = chain || Function.prototype;
     hdmi.status(function(err , data){
       if(err)
