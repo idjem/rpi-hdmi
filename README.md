@@ -38,7 +38,7 @@ hdmi.on((err) => {
 ```
 const hdmi = require('rpi-hdmi');
 
-hdmi.on((err) => {
+hdmi.off((err) => {
   if(!err)
     console.log('HDMI is On')
 });
